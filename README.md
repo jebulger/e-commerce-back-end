@@ -22,4 +22,4 @@ Steps to use the app:
 8. For example, a delete request made to categories would look like: 'http://localhost:3001/api/categories/:id', with ':id' being replaced with the actual id of the category you are wanting to remove.
 
 ## Tutorial
-[Click here to be directed to the walkthrough video]()
+[Click here to be directed to the walkthrough video](https://drive.google.com/file/d/1kBvuaoN1P8WT2dcyurg92s6R3Tzgv8Rb/view)
