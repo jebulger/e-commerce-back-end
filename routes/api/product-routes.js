@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
+// Get request for all products found in ecommerce_db
 router.get('/', async (req, res) => {
   try {
     const products = await Product.findAll({
@@ -12,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get request for a single product based on it's id
 router.get('/:id', async (req, res) => {
   try {
     const product = await Product.findByPk(req.params.id, {
@@ -96,6 +98,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// Delete request to delete an existing product based on it's id
 router.delete('/:id', async (req, res) => {
   try {
     const deletedProduct = await Product.destroy({

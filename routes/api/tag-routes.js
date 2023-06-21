@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Tag, Product, ProductTag } = require('../../models');
 
-
+// Get request to get all tags found in ecommerce_db
 router.get('/', async (req, res) => {
   try {
     const tags = await Tag.findAll({include: Product});
@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get request to get a single tag based on it's id
 router.get('/:id', async (req, res) => {
   try {
     const tag = await Tag.findByPk(req.params.id, {include: Product});
@@ -24,6 +25,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Post request to create a new tag
 router.post('/', async (req, res) => {
   try {
     const tag = await Tag.create(req.body);
@@ -33,6 +35,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Put request to update an existing tag based on it's unique id
 router.put('/:id', async (req, res) => {
   try {
     const updatedTag = await Tag.update(req.body, {
@@ -50,6 +53,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Delete request to delete an existing tag based on it's id
 router.delete('/:id', async (req, res) => {
   try {
     const deletedTag = await Tag.destroy({

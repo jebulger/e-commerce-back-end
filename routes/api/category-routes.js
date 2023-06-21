@@ -3,6 +3,7 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
+// Get request for all categories found in ecommerce_db
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.findAll({include: Product});
@@ -12,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get request for a single category based on it's id
 router.get('/:id', async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id, {include: Product});
@@ -25,6 +27,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Post request to create a new category
 router.post('/', async (req, res) => {
   try {
     const category = await Category.create(req.body);
@@ -34,6 +37,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Put request to update an existing category
 router.put('/:id', async (req, res) => {
   try {
     const updatedCategory = await Category.update(req.body, {
@@ -51,6 +55,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Delete request to delete an existing category
 router.delete('/:id', async (req, res) => {
   try {
     const deletedCategory = await Category.destroy({

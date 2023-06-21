@@ -6,6 +6,7 @@ class Tag extends Model {}
 
 Tag.init(
   {
+    // Defines tag_name as a string that cannot be null
     tag_name: {
       type: DataTypes.STRING,
       allowNull: false,
